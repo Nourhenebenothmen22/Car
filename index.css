@@ -418,6 +418,34 @@ header {
   color: var(--text-light);
   text-align: center;
 }
+body[data-theme="light"] {
+  background-color: var(--white);
+  color: var(--text-dark);
+}
+
+body[data-theme="dark"] {
+  background-color: var(--text-dark);
+  color: var(--white);
+}
+
+/* Ajoutez des styles pour les autres éléments si nécessaire */
+body[data-theme="dark"] h1,
+body[data-theme="dark"] .section__description,
+body[data-theme="dark"] a,
+body[data-theme="dark"] h4,
+body[data-theme="dark"] input {
+  color: var(--white);
+}
+
+body[data-theme="dark"] .btn {
+  color: var(--text-dark);
+  background-color: var(--white);
+}
+
+body[data-theme="light"] .btn {
+  color: var(--white);
+  background-color: var(--text-dark);
+}
 
 @media (width > 540px) {
   .header__content h1 {

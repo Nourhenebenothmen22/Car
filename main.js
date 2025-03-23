@@ -57,6 +57,34 @@ ScrollReveal().reveal(".about__btn", {
   ...scrollRevealOption,
   delay: 2500,
 });
+const Btn=document.getElementById('theme-toggle')
+// Sélection des éléments
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Vérifier le thème sauvegardé
+const savedTheme = localStorage.getItem('theme') || 'light';
+body.setAttribute('data-theme', savedTheme);
+updateButtonIcon(savedTheme);
+
+// Gestion du clic
+themeToggle.addEventListener('click', () => {
+  const currentTheme = body.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  body.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateButtonIcon(newTheme);
+});
+
+// Mise à jour de l'icône
+function updateButtonIcon(theme) {
+  const icon = themeToggle.querySelector('i');
+  icon.className = theme === 'dark' 
+    ? 'ri-sun-line' 
+    : 'ri-moon-line';
+}
+
 
 /* const fleet1 = document.querySelector(".fleet__wrapper-1 .fleet__images");
 const fleet2 = document.querySelector(".fleet__wrapper-2 .fleet__images");
